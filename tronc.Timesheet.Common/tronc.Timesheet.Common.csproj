@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1670DE71-A310-402D-96F8-BD4D08F436D4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>tronc.Timesheet.Common</RootNamespace>
+    <AssemblyName>tronc.Timesheet.Common</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AWSSDK">
+      <HintPath>bin\AWSSDK.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Entities\Company.cs" />
+    <Compile Include="Entities\EmailEnt.cs" />
+    <Compile Include="Entities\EmployeeCatagory.cs" />
+    <Compile Include="Entities\FeedbackEnt.cs" />
+    <Compile Include="Entities\FeedbackCatagory.cs" />
+    <Compile Include="Entities\FeedbackRequest.cs" />
+    <Compile Include="Entities\FeedbackResponse.cs" />
+    <Compile Include="Entities\FeedbackType.cs" />
+    <Compile Include="Entities\FeedbackLookup.cs" />
+    <Compile Include="Entities\HeaderEntity.cs" />
+    <Compile Include="Entities\Leave.cs" />
+    <Compile Include="Entities\Messages.cs" />
+    <Compile Include="Entities\Month.cs" />
+    <Compile Include="Entities\Resource.cs" />
+    <Compile Include="Entities\ResourceEffort.cs" />
+    <Compile Include="Entities\ResourceEffortComment.cs" />
+    <Compile Include="Entities\Segment.cs" />
+    <Compile Include="Entities\Tower.cs" />
+    <Compile Include="Entities\Year.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\EmailUtility.cs" />
+    <Compile Include="Utilities\Encryption.cs" />
+    <Compile Include="Utilities\ExceptionUtility.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Log4NetLibrary\Log4NetLibrary.csproj">
+      <Project>{f885c66f-7432-483b-bbe9-efeaf8b68fac}</Project>
+      <Name>Log4NetLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
