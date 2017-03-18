@@ -781,7 +781,7 @@ namespace tronc.Timesheet.Web
 
 
         /// <summary>
-        /// To export the Grid content to PDF
+        /// To export the Grid content to PDF 
         /// </summary>
         private void ExportToPDF()
         {
