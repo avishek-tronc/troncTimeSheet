@@ -38,6 +38,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="itextsharp">
+      <HintPath>..\lib\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="NetSpell.SpellChecker, Version=2.1.7.24956, Culture=neutral, PublicKeyToken=318b389f0db66e46, processorArchitecture=MSIL">
       <HintPath>..\packages\RichTextEditor.8.2.0.3\lib\NetSpell.SpellChecker.dll</HintPath>
@@ -94,6 +97,7 @@
     <Content Include="Images\logo-tcs.jpg" />
     <Content Include="Images\logo.png" />
     <Content Include="Images\neutral.png" />
+    <Content Include="Images\pdf-icon.png" />
     <Content Include="Images\popup-heder-bg.jpg" />
     <Content Include="Images\side-img.jpg" />
     <Content Include="Images\smiley1.png" />

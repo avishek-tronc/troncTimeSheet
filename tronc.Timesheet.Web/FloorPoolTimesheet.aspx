@@ -211,12 +211,12 @@
             <!-- Search Criteria -->
             <!-- /.row -->
 
-            <%--<div class='tooltiptime'><span style='color: red'>15</span><span class='tooltiptimetext'>Development and Testing support during QA testing of xactly-commission-processing application. The Mule Server was not responding properly and for that reason QA testing time schedule was disturbed. As a solo developer of this application I have to stay online for late hours for assisting QA teams for their testing.</span></div>--%>
+           
 
             <div class="row">
                 <div style="float: right;">
                     <asp:ImageButton ID="btnExport" runat="server" ImageUrl="Images/export-to-excel-image.png" AlternateText="export" Width="50" Height="30" OnClick="btnExport_Click" />
-                    <%--<img src="Images/export-to-excel-image.png" alt="export" width="50" height="30">--%>
+                    <asp:ImageButton ID="btnExportPDF" runat="server" ImageUrl="Images/pdf-icon.png" AlternateText="export" Width="40" Height="30" OnClick="btnExportPDF_Click" />
                 </div>
 
                 <div>

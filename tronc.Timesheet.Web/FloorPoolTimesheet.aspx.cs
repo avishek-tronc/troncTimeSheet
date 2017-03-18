@@ -10,6 +10,9 @@ using tronc.Timesheet.BL.Repository;
 using tronc.Timesheet.Common.Entities;
 using System.IO;
 using tronc.Timesheet.Web.Utils;
+using iTextSharp.text;
+using iTextSharp.text.html.simpleparser;
+using iTextSharp.text.pdf;
 
 namespace tronc.Timesheet.Web
 {
@@ -237,6 +240,14 @@ namespace tronc.Timesheet.Web
                 ExportToExcel();
             }
         }
+
+        protected void btnExportPDF_Click(object sender, ImageClickEventArgs e)
+        {
+            if (grdOrder.Rows.Count > 0)
+            {
+                ExportToPDF();
+            }
+        }
         #endregion
 
         #region Private Methods
@@ -401,7 +412,7 @@ namespace tronc.Timesheet.Web
 
                 if (lstResource != null && lstResource.Count > 0)
                 {
-                    ddlResource.Items.Add(new ListItem("ALL", "0"));
+                    ddlResource.Items.Add(new System.Web.UI.WebControls.ListItem("ALL", "0"));
                     ddlResource.DataSource = lstResource;
                     ddlResource.DataTextField = "ResourceName";
                     ddlResource.DataValueField = "ResourceId";
@@ -439,7 +450,7 @@ namespace tronc.Timesheet.Web
                 List<Segment> lstSegment = GetSegment();
                 if (lstSegment != null && lstSegment.Count > 0)
                 {
-                    ddlSegment.Items.Add(new ListItem("ALL", "0"));
+                    ddlSegment.Items.Add(new System.Web.UI.WebControls.ListItem("ALL", "0"));
                     ddlSegment.DataSource = lstSegment;
                     ddlSegment.DataTextField = "SegmentName";
                     ddlSegment.DataValueField = "SegmentId";
@@ -767,6 +778,50 @@ namespace tronc.Timesheet.Web
                 throw new Exception(ex.Message);
             }
         }
+
+
+        /// <summary>
+        /// To export the Grid content to PDF
+        /// </summary>
+        private void ExportToPDF()
+        {
+            string yearName = ddlYear.SelectedItem.Text;
+            string monthName = ddlMonth.SelectedItem.Text;
+            string fileName = yearName + "_" + monthName + "_" + "Effort" + ".pdf";
+            try
+            {
+                Response.ContentType = "application/pdf";
+                Response.AddHeader("content-disposition", "attachment;filename=" + fileName);
+                Response.Cache.SetCacheability(HttpCacheability.NoCache);
+                StringWriter sw = new StringWriter();
+                HtmlTextWriter hw = new HtmlTextWriter(sw);
+                grdOrder.RenderControl(hw);
+                StringReader sr = new StringReader(sw.ToString());
+                Document pdfDoc = new Document(PageSize.A1, 1f, 1f, 1f, 0f);
+                HTMLWorker htmlparser = new HTMLWorker(pdfDoc);
+                PdfWriter.GetInstance(pdfDoc, Response.OutputStream);
+                pdfDoc.Open();
+                htmlparser.Parse(sr);
+                pdfDoc.Close();
+                Response.Write(pdfDoc);
+                Response.End();
+                grdOrder.AllowPaging = false;
+                grdOrder.DataBind();
+            }
+            catch (Exception ex)
+            {
+                ILogService logService = new FileLogService(typeof(FloorPoolTimesheet));
+                StringBuilder strbError = new StringBuilder();
+                strbError.AppendLine(ex.StackTrace.ToString());
+                strbError.AppendLine(ex.Message.ToString());
+                if (ex.InnerException != null)
+                {
+                    strbError.AppendLine(ex.InnerException.ToString());
+                }
+                logService.Error(strbError.ToString());
+                throw new Exception(ex.Message);
+            }
+        }
         public override void VerifyRenderingInServerForm(Control control)
         {
             /* Confirms that an HtmlForm control is rendered for the specified ASP.NET
@@ -804,6 +859,8 @@ namespace tronc.Timesheet.Web
             return lstResourceEffortComment;
         }
         #endregion
+
+
 
 
 
