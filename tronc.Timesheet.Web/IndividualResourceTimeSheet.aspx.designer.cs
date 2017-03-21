@@ -76,6 +76,24 @@ namespace tronc.Timesheet.Web {
         protected global::System.Web.UI.WebControls.Label lblYear;
         
         /// <summary>
+        /// txtMonthlyEffort control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMonthlyEffort;
+        
+        /// <summary>
+        /// lbCopyEffort control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbCopyEffort;
+        
+        /// <summary>
         /// lblSaveStatus control.
         /// </summary>
         /// <remarks>

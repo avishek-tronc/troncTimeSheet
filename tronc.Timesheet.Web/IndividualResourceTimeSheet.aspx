@@ -106,7 +106,26 @@
                             <asp:Label ID="lblYear" runat="server"></asp:Label>
                         </div>
                     </div>
+                    <div class="form-group properties col-md-10">
+                        <div class="col-md-4">Enter Effort:</div>
+                        <div class="col-md-8">
+                            <asp:TextBox ID="txtMonthlyEffort" Height="25px" Width="50px" runat="server"></asp:TextBox>
+                            <asp:LinkButton ID="lbCopyEffort" Height="25px" CssClass="btn btn-primary" runat="server" OnClick="lbCopyEffort_Click">Copy to Month</asp:LinkButton>
+                        </div>
+                    </div>
                 </div>
+
+                <%-- <div class="row">
+                    <div class="col-md-4">
+                        Enter Effort:
+                    </div>
+                    <div class="col-md-8">
+                        <div style="text-align: left">
+                            <asp:TextBox ID="txtMonthlyEffort" Height="25px" Width="50px" runat="server"></asp:TextBox>
+                            <asp:LinkButton ID="lbCopyEffort" CssClass="btn btn-primary" runat="server">Copy to Month</asp:LinkButton>
+                        </div>
+                    </div>
+                </div>--%>
 
                 <div class="row">
                     <div class="col-md-2">

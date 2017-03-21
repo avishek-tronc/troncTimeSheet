@@ -5,8 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using tronc.Timesheet.Common.Entities;
 using Log4NetLibrary;
-using Amazon.SimpleEmail.Model;
-using Amazon.SimpleEmail;
 using System.Collections;
 using System.Net.Mail;
 using System.Net;

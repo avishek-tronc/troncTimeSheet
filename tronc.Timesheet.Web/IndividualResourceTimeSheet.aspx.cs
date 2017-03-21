@@ -90,6 +90,11 @@ namespace tronc.Timesheet.Web
 
         }
 
+        protected void lbCopyEffort_Click(object sender, EventArgs e)
+        {
+
+        }
+
         #endregion
 
         #region Private Methods
@@ -1479,6 +1484,10 @@ namespace tronc.Timesheet.Web
             return dtEffort;
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
         protected void ExportToExcel()
         {
             string yearName = (string)ViewState["Year"];
@@ -1524,10 +1533,363 @@ namespace tronc.Timesheet.Web
                server control at run time. */
         }
 
+
+        /// <summary>
+        /// To copy the Month effort to all the days of the month
+        /// </summary>
+        private void CopyMonthEffort(string effortValue)
+        {
+            //To retrive the Year and Month details dynamically based on the Id
+            int month = Convert.ToInt32(Request.QueryString.Get("Mid"));
+            int year = Convert.ToInt32((string)ViewState["Year"]);
+
+
+            try
+            {
+                #region First
+                int first = Convert.ToInt32(hdnFirst.Value.ToString());
+                string firstDay = GetWeekDayName(year, month, first);
+                if (firstDay.Trim().Equals("Saturday") || firstDay.Trim().Equals("Sunday"))
+                {
+                    txtFirst.Text = "0";
+                }
+                else { txtFirst.Text = "9"; }
+                #endregion
+                #region second
+                int second = Convert.ToInt32(hdnSecond.Value.ToString());
+                string secondDay = GetWeekDayName(year, month, second);
+                if (secondDay.Trim().Equals("Saturday") || secondDay.Trim().Equals("Sunday"))
+                {
+                    txtSecond.Text = "0";
+                }
+                else { txtSecond.Text = "9"; }
+                #endregion
+                #region Third
+                int third = Convert.ToInt32(hdnThird.Value.ToString());
+                string thirdDay = GetWeekDayName(year, month, third);
+                if (thirdDay.Trim().Equals("Saturday") || thirdDay.Trim().Equals("Sunday"))
+                {
+                    txtThird.Text = "0";
+                }
+                else { txtThird.Text = "9"; }
+                #endregion
+
+                #region Fourth
+                int Fourth = Convert.ToInt32(hdnFourth.Value.ToString());
+                string FourthDay = GetWeekDayName(year, month, Fourth);
+                if (FourthDay.Trim().Equals("Saturday") || FourthDay.Trim().Equals("Sunday"))
+                {
+                    txtFourth.Text = "0";
+                }
+                else { txtFourth.Text = "9"; }
+                #endregion
+
+                #region Fifth
+                int Fifth = Convert.ToInt32(hdnFifth.Value.ToString());
+                string FifthDay = GetWeekDayName(year, month, Fifth);
+                if (FifthDay.Trim().Equals("Saturday") || FifthDay.Trim().Equals("Sunday"))
+                {
+                    txtFifth.Text = "0";
+                }
+                else { txtFifth.Text = "9"; }
+                #endregion
+
+                #region sixth
+                int sixth = Convert.ToInt32(hdnsixth.Value.ToString());
+                string sixthDay = GetWeekDayName(year, month, sixth);
+                if (sixthDay.Trim().Equals("Saturday") || sixthDay.Trim().Equals("Sunday"))
+                {
+                    txtsixth.Text = "0";
+                }
+                else { txtsixth.Text = "9"; }
+                #endregion
+
+                #region seventh
+                int seventh = Convert.ToInt32(hdnseventh.Value.ToString());
+                string seventhDay = GetWeekDayName(year, month, seventh);
+                if (seventhDay.Trim().Equals("Saturday") || seventhDay.Trim().Equals("Sunday"))
+                {
+                    txtseventh.Text = "0";
+                }
+                else { txtseventh.Text = "9"; }
+                #endregion
+
+                #region eighth
+                int eighth = Convert.ToInt32(hdneighth.Value.ToString());
+                string eighthDay = GetWeekDayName(year, month, eighth);
+                if (eighthDay.Trim().Equals("Saturday") || eighthDay.Trim().Equals("Sunday"))
+                {
+                    txteighth.Text = "0";
+                }
+                else { txteighth.Text = "9"; }
+                #endregion
+
+                #region nineth
+                int nineth = Convert.ToInt32(hdnnineth.Value.ToString());
+                string ninethDay = GetWeekDayName(year, month, nineth);
+                if (ninethDay.Trim().Equals("Saturday") || ninethDay.Trim().Equals("Sunday"))
+                {
+                    txtnineth.Text = "0";
+                }
+                else { txtnineth.Text = "9"; }
+                #endregion
+
+                #region tenth
+                int tenth = Convert.ToInt32(hdntenth.Value.ToString());
+                string tenthDay = GetWeekDayName(year, month, tenth);
+                if (tenthDay.Trim().Equals("Saturday") || tenthDay.Trim().Equals("Sunday"))
+                {
+                    txttenth.Text = "0";
+                }
+                else { txttenth.Text = "9"; }
+                #endregion
+
+                #region eleventh
+                int eleventh = Convert.ToInt32(hdneleventh.Value.ToString());
+                string eleventhDay = GetWeekDayName(year, month, eleventh);
+                if (eleventhDay.Trim().Equals("Saturday") || eleventhDay.Trim().Equals("Sunday"))
+                {
+                    txteleventh.Text = "0";
+                }
+                else { txteleventh.Text = "9"; }
+                #endregion
+                #region twelveth
+
+                int twelveth = Convert.ToInt32(hdntwelveth.Value.ToString());
+                string twelvethDay = GetWeekDayName(year, month, twelveth);
+                if (twelvethDay.Trim().Equals("Saturday") || twelvethDay.Trim().Equals("Sunday"))
+                {
+                    txttwelveth.Text = "0";
+                }
+                else { txttwelveth.Text = "9"; }
+                #endregion
+                #region tirteenth
+                int tirteenth = Convert.ToInt32(hdntirteenth.Value.ToString());
+                string tirteenthDay = GetWeekDayName(year, month, tirteenth);
+                if (tirteenthDay.Trim().Equals("Saturday") || tirteenthDay.Trim().Equals("Sunday"))
+                {
+                    txttirteen.Text = "0";
+                }
+                else { txttirteen.Text = "9"; }
+                #endregion
+                #region fourteenth
+                int fourteenth = Convert.ToInt32(hdnfourteenth.Value.ToString());
+                string fourteenthDay = GetWeekDayName(year, month, fourteenth);
+                if (fourteenthDay.Trim().Equals("Saturday") || fourteenthDay.Trim().Equals("Sunday"))
+                {
+                    txtfourteenth.Text = "0";
+                }
+                else { txtfourteenth.Text = "9"; }
+
+                #endregion
+                #region fifteenth
+                int fifteenth = Convert.ToInt32(hdnfifteenth.Value.ToString());
+                string fifteenthDay = GetWeekDayName(year, month, fifteenth);
+                if (fifteenthDay.Trim().Equals("Saturday") || fifteenthDay.Trim().Equals("Sunday"))
+                {
+                    txtfifteenth.Text = "0";
+                }
+                else { txtfifteenth.Text = "9"; }
+
+                #endregion
+                #region sixteenth
+                int sixteenth = Convert.ToInt32(hdnsixteenth.Value.ToString());
+                string sixteenthDay = GetWeekDayName(year, month, sixteenth);
+                if (sixteenthDay.Trim().Equals("Saturday") || sixteenthDay.Trim().Equals("Sunday"))
+                {
+                    txtsixteenth.Text = "0";
+                }
+                else { txtsixteenth.Text = "9"; }
+                #endregion
+                #region seventeenth
+                int seventeenth = Convert.ToInt32(hdnseventeenth.Value.ToString());
+                string seventeenthDay = GetWeekDayName(year, month, seventeenth);
+                if (seventeenthDay.Trim().Equals("Saturday") || seventeenthDay.Trim().Equals("Sunday"))
+                {
+                    txtseventeenth.Text = "0";
+                }
+                else { txtseventeenth.Text = "9"; }
+
+                #endregion
+                #region eighteenth
+                int eighteenth = Convert.ToInt32(hdneighteenth.Value.ToString());
+                string eighteenthDay = GetWeekDayName(year, month, eighteenth);
+                if (eighteenthDay.Trim().Equals("Saturday") || eighteenthDay.Trim().Equals("Sunday"))
+                {
+                    txteighteenth.Text = "0";
+                }
+                else { txteighteenth.Text = "9"; }
+                #endregion
+                #region ninteenth
+                int ninteenth = Convert.ToInt32(hdnninteenth.Value.ToString());
+                string ninteenthDay = GetWeekDayName(year, month, ninteenth);
+                if (ninteenthDay.Trim().Equals("Saturday") || ninteenthDay.Trim().Equals("Sunday"))
+                {
+                    txtninteenth.Text = "0";
+                }
+                else { txtninteenth.Text = "9"; }
+
+                #endregion
+                #region twenty
+
+                int twenty = Convert.ToInt32(hdntwenty.Value.ToString());
+                string twentyDay = GetWeekDayName(year, month, twenty);
+                if (twentyDay.Trim().Equals("Saturday") || twentyDay.Trim().Equals("Sunday"))
+                {
+                    txttwenty.Text = "0";
+                }
+                else { txttwenty.Text = "9"; }
+
+
+                #endregion
+                #region twenty1st
+                int twenty1st = Convert.ToInt32(hdntwenty1st.Value.ToString());
+                string twenty1stDay = GetWeekDayName(year, month, twenty1st);
+                if (twenty1stDay.Trim().Equals("Saturday") || twenty1stDay.Trim().Equals("Sunday"))
+                {
+                    txttwenty1st.Text = "0";
+                }
+                else { txttwenty1st.Text = "9"; }
+                #endregion
+                #region twenty2nd
+                int twenty2nd = Convert.ToInt32(hdntwenty2nd.Value.ToString());
+                string twenty2ndDay = GetWeekDayName(year, month, twenty2nd);
+                if (twenty2ndDay.Trim().Equals("Saturday") || twenty2ndDay.Trim().Equals("Sunday"))
+                {
+                    spntwenty2nd.Style.Add("color", "Red");
+                }
+                spntwenty2nd.InnerHtml = twenty2ndDay + " " + "22nd";
+                #endregion
+                #region twenty3rd
+                int twenty3rd = Convert.ToInt32(hdntwenty3rd.Value.ToString());
+                string twenty3rdDay = GetWeekDayName(year, month, twenty3rd);
+                if (twenty3rdDay.Trim().Equals("Saturday") || twenty3rdDay.Trim().Equals("Sunday"))
+                {
+                    spntwenty3rd.Style.Add("color", "Red");
+                }
+                spntwenty3rd.InnerHtml = twenty3rdDay + " " + "23rd";
+
+                #endregion
+                #region twentyfourth
+                int twentyfourth = Convert.ToInt32(hdntwentyfourth.Value.ToString());
+                string twentyfourthDay = GetWeekDayName(year, month, twentyfourth);
+                if (twentyfourthDay.Trim().Equals("Saturday") || twentyfourthDay.Trim().Equals("Sunday"))
+                {
+                    spntwentyfourth.Style.Add("color", "Red");
+                }
+                spntwentyfourth.InnerHtml = twentyfourthDay + " " + "24th";
+                #endregion
+                #region twentyfifth
+
+                int twentyfifth = Convert.ToInt32(hdntwentyfifth.Value.ToString());
+                string twentyfifthDay = GetWeekDayName(year, month, twentyfifth);
+                if (twentyfifthDay.Trim().Equals("Saturday") || twentyfifthDay.Trim().Equals("Sunday"))
+                {
+                    spntwentyfifth.Style.Add("color", "Red");
+                }
+                spntwentyfifth.InnerHtml = twentyfifthDay + " " + "25th";
+                #endregion
+                #region twentysixth
+                int twentysixth = Convert.ToInt32(hdntwentysixth.Value.ToString());
+                string twentysixthDay = GetWeekDayName(year, month, twentysixth);
+                if (twentysixthDay.Trim().Equals("Saturday") || twentysixthDay.Trim().Equals("Sunday"))
+                {
+                    spntwentysixth.Style.Add("color", "Red");
+                }
+                spntwentysixth.InnerHtml = twentysixthDay + " " + "26th";
+                #endregion
+                #region twentyseventh
+                int twentyseventh = Convert.ToInt32(hdntwentyseventh.Value.ToString());
+                string twentyseventhDay = GetWeekDayName(year, month, twentyseventh);
+                if (twentyseventhDay.Trim().Equals("Saturday") || twentyseventhDay.Trim().Equals("Sunday"))
+                {
+                    spntwentyseventh.Style.Add("color", "Red");
+                }
+                spntwentyseventh.InnerHtml = twentyseventhDay + " " + "27th";
+
+                #endregion
+                #region twentyeighth
+                int twentyeighth = Convert.ToInt32(hdntwentyeighth.Value.ToString());
+                string twentyeighthDay = GetWeekDayName(year, month, twentyeighth);
+                if (twentyeighthDay.Trim().Equals("Saturday") || twentyeighthDay.Trim().Equals("Sunday"))
+                {
+                    spntwentyeighth.Style.Add("color", "Red");
+                }
+                spntwentyeighth.InnerHtml = twentyeighthDay + " " + "28th";
+                #endregion
+                #region twentynineth
+                int twentynineth = Convert.ToInt32(hdntwentynineth.Value.ToString());
+                int daysInMonth = DateTime.DaysInMonth(year, month);
+                if (twentynineth <= daysInMonth)
+                {
+                    string twentyninethDay = GetWeekDayName(year, month, twentynineth);
+                    if (twentyninethDay.Trim().Equals("Saturday") || twentyninethDay.Trim().Equals("Sunday"))
+                    {
+                        spntwentynineth.Style.Add("color", "Red");
+                    }
+                    spntwentynineth.InnerHtml = twentyninethDay + " " + "29th";
+                }
+                else
+                {
+                    spntwentynineth.Visible = false;
+                    txttwentynineth.Visible = false;
+                    txttwentyninethComment.Visible = false;
+                }
+                #endregion
+                #region thirty
+                int thirty = Convert.ToInt32(hdnthirty.Value.ToString());
+                if (thirty <= daysInMonth)
+                {
+                    string thirtyDay = GetWeekDayName(year, month, thirty);
+                    if (thirtyDay.Trim().Equals("Saturday") || thirtyDay.Trim().Equals("Sunday"))
+                    {
+                        spnthirty.Style.Add("color", "Red");
+                    }
+                    spnthirty.InnerHtml = twentyeighthDay + " " + "30th";
+                }
+                else
+                {
+                    spnthirty.Visible = false;
+                    txtthirty.Visible = false;
+                    txtthirtyComment.Visible = false;
+                }
+                #endregion
+                #region thirtyone
+                int thirtyone = Convert.ToInt32(hdnthirtyone.Value.ToString());
+                if (thirtyone <= daysInMonth)
+                {
+                    string thirtyoneDay = GetWeekDayName(year, month, thirtyone);
+                    if (thirtyoneDay.Trim().Equals("Saturday") || thirtyoneDay.Trim().Equals("Sunday"))
+                    {
+                        spnthirtyone.Style.Add("color", "Red");
+                    }
+                    spnthirtyone.InnerHtml = thirtyoneDay + " " + "31st";
+                }
+                else
+                {
+                    spnthirtyone.Visible = false;
+                    txtthirtyoneComment.Visible = false;
+                    txthirtyone.Visible = false;
+                }
+                #endregion
+            }
+            catch (Exception ex)
+            {
+
+                ILogService logService = new FileLogService(typeof(IndividualResourceTimeSheet));
+                StringBuilder strbError = new StringBuilder();
+                strbError.AppendLine(ex.StackTrace.ToString());
+                strbError.AppendLine(ex.Message.ToString());
+                if (ex.InnerException != null)
+                {
+                    strbError.AppendLine(ex.InnerException.ToString());
+                }
+                logService.Error(strbError.ToString());
+                throw new Exception(ex.Message);
+            }
+
+        }
         #endregion
-
-
-
 
 
     }
