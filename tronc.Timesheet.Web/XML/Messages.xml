@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<root>
-  <feedbackSaveSuccess>
-    !! Your feedback will definitely help us to improve the quality of service and align better to each other's expectations and grow together. Your input would be analyzed and improvement actions would be taken !!
-  </feedbackSaveSuccess>
-  <feedbackSaveFailure>Sorry!! we are unabe to save your feedback. Please contact help desk</feedbackSaveFailure>
-  <duplicateFeedbackCategory>Feedback Catagory of both the feedback can not be same</duplicateFeedbackCategory>
-</root>
